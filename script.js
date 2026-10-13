@@ -25,7 +25,7 @@ function updatePetalOpacity() {
 
 function showPage() {
   const requested = location.hash.slice(1);
-  const caseTarget = requested === 'onestop-cases';
+  const caseTarget = ['onestop-cases', 'consultation'].includes(requested);
   const id = caseTarget ? 'onestop' : pages.some(page => page.id === requested) ? requested : 'home';
   pages.forEach(page => page.hidden = page.id !== id);
   const activePage = document.querySelector(`#${id}`);
@@ -37,7 +37,7 @@ function showPage() {
   menu.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
   if (caseTarget) {
-    requestAnimationFrame(() => document.querySelector('#onestop-cases')?.scrollIntoView({block:'start'}));
+    requestAnimationFrame(() => document.getElementById(requested)?.scrollIntoView({block:'start'}));
   } else {
     window.scrollTo({top: 0});
   }
@@ -53,27 +53,10 @@ window.addEventListener('scroll', updatePetalOpacity, {passive: true});
 window.addEventListener('resize', updatePetalOpacity);
 showPage();
 
-document.addEventListener('click', event => {
-  const trigger = event.target.closest('[data-expert-target]');
-  if (!trigger) return;
-  event.preventDefault();
-  const targetId = trigger.dataset.expertTarget;
-  if (location.hash !== '#onestop-cases') location.hash = 'onestop-cases';
-  else showPage();
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    const target = document.getElementById(targetId);
-    if (!target) return;
-    document.querySelectorAll('#onestop-cases .profile-accordion details[open]').forEach(item => {
-      if (item !== target) item.open = false;
-    });
-    target.open = true;
-    target.scrollIntoView({behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'center'});
-  }));
-});
 
 const planData = {
   cremation: {
-    title: '화장 전용 플랜', price: '290', original: '390만원', image: 'assets/plan.png',
+    title: '화장 전용 플랜', price: '290', negotiable: false, image: 'assets/plan.png',
     items: [
       ['item-1.png','장례지도사','장례지도사 1명 2~3일 파견 · 입관 시 1명 추가 지원'],
       ['item-2.png','빈소 용품','향, 초, 위패, 조의록 등 일체 제공'],
@@ -88,7 +71,7 @@ const planData = {
     ]
   },
   burial: {
-    title: '매장 전용 플랜', price: '320', original: '420만원', image: 'assets/plan-burial-mound.png',
+    title: '매장 전용 플랜', price: '350', negotiable: true, image: 'assets/plan-burial-mound.png',
     items: [
       ['item-1.png','장례지도사','장례지도사 1명 2~3일 파견 · 입관 시 1명 추가 지원'],
       ['item-2.png','빈소 용품','향, 초, 위패, 조의록 등 일체 제공'],
@@ -103,7 +86,7 @@ const planData = {
     ]
   },
   simple: {
-    title: '무빈소 플랜', price: '90', original: '190만원', image: 'assets/plan-simple-urn.png',
+    title: '무빈소 플랜', price: '130', negotiable: true, image: 'assets/plan-simple-urn.png',
     items: [
       ['item-1.png','장례지도사','장례 절차 상담 및 발인 진행'],
       ['item-3.png','관','화장용 관 제공'],
@@ -122,7 +105,8 @@ function selectPlan(key) {
   const plan = planData[key];
   document.querySelector('#plan-title').textContent = plan.title;
   document.querySelector('#plan-price').textContent = plan.price;
-  document.querySelector('#plan-original-price').textContent = plan.original;
+  document.querySelector('.plan-summary small').textContent = '안내 금액';
+  document.querySelector('#plan-negotiable').hidden = !plan.negotiable;
   const image = document.querySelector('#plan-image');
   image.src = plan.image;
   image.alt = plan.title;
@@ -183,7 +167,7 @@ if (expertCarousel) {
 }
 
 const serviceDetails = [...document.querySelectorAll('.services details')];
-serviceDetails.forEach(detail => { detail.open = false; });
+// Keep the first profile open to introduce the expert directory.
 serviceDetails.forEach(detail => {
   detail.addEventListener('toggle', () => {
     if (!detail.open) return;
@@ -219,3 +203,62 @@ if (emergencyButton && homeHero && typeof IntersectionObserver === 'function') {
     if (document.querySelector('#home').hidden) emergencyButton.classList.remove('is-hidden');
   });
 }
+
+
+// Frontend only. No storage, analytics payload, or submission endpoint is configured.
+// The site owner will connect the receiving channel and approved privacy notice separately.
+const consultationForm = document.querySelector('#consultation-form');
+const serviceInputs = [...consultationForm.querySelectorAll('[name="services"]')];
+const serviceNames = Object.fromEntries(serviceInputs.map(input => [input.value, input.closest('label').querySelector('b').textContent]));
+const review = document.querySelector('#consultation-review');
+function syncConsultation() {
+  const chosen = serviceInputs.filter(input => input.checked).map(input => input.value);
+  document.querySelector('#directory-count').textContent = `${chosen.length}개`;
+  document.querySelector('#selection-status').textContent = chosen.length ? `${chosen.length}개 분야 선택 · ${chosen.map(key => serviceNames[key]).join(', ')}` : '필요한 분야를 선택해 주세요.';
+  serviceInputs[0].setCustomValidity(chosen.length ? '' : '상담 분야를 하나 이상 선택해 주세요.');
+  document.querySelectorAll('[data-select-service]').forEach(button => {
+    const selected = chosen.includes(button.dataset.selectService);
+    button.setAttribute('aria-pressed', String(selected));
+    button.textContent = selected ? '선택됨 · 다시 누르면 해제 ✓' : '이 상담 선택하기 ＋';
+  });
+  review.hidden = true;
+}
+syncConsultation();
+consultationForm.addEventListener('input', syncConsultation);
+document.addEventListener('click', event => {
+  const button = event.target.closest('[data-select-service]');
+  const guideLink = event.target.closest('[data-expert-target]');
+  if (!button && !guideLink) return;
+  event.preventDefault();
+  const key = button ? button.dataset.selectService : guideLink.dataset.expertTarget.replace('expert-', '');
+  const input = serviceInputs.find(input => input.value === key);
+  if (!input) return;
+  input.checked = button ? !input.checked : true;
+  syncConsultation();
+  if (guideLink) {
+    if (location.hash !== '#consultation') location.hash = 'consultation';
+    else document.querySelector('#consultation').scrollIntoView({behavior: reduceMotion.matches ? 'auto' : 'smooth'});
+    requestAnimationFrame(() => input.focus({preventScroll:true}));
+  }
+});
+consultationForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const selected = serviceInputs.filter(input => input.checked).map(input => serviceNames[input.value]);
+  if (!selected.length || !consultationForm.reportValidity()) return;
+  const values = new FormData(consultationForm);
+  const rows = [ ['상담 분야', selected.join(' · ')], ['성함', values.get('customerName')], ['연락처', values.get('phone')], ['연락 가능한 시간', values.get('preferredTime') || '미입력'], ['남기실 말씀', values.get('message') || '미입력'] ];
+  const list = document.querySelector('#review-values');
+  list.replaceChildren();
+  rows.forEach(([label, value]) => {
+    const term = document.createElement('dt'); term.textContent = label;
+    const description = document.createElement('dd'); description.textContent = value;
+    list.append(term, description);
+  });
+  review.hidden = false;
+  review.focus({preventScroll:true});
+  review.scrollIntoView({behavior: reduceMotion.matches ? 'auto' : 'smooth', block:'center'});
+});
+document.querySelector('#edit-consultation').addEventListener('click', () => {
+  review.hidden = true;
+  consultationForm.querySelector('[name="customerName"]').focus();
+});

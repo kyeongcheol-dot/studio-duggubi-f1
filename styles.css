@@ -2504,3 +2504,105 @@ html,body{max-width:100%;overflow-x:clip}
     margin-top:14px;
   }
 }
+
+/* Round 2 — editorial expert directory and representative-led consultation. */
+[hidden]{display:none!important}
+.brand-eyebrow,.section-eyebrow{font-size:11px!important;font-weight:600!important;letter-spacing:.18em!important;line-height:1.5!important}
+#home .hero-copy .brand-eyebrow{margin:25px 0 16px;color:#5a5772;letter-spacing:.24em!important;font-size:15px!important}
+#home .hero-copy h1{line-height:1.45}
+#home .plan-negotiable{margin:0 38px 20px;padding:10px 16px;text-align:right;color:#656176;background:#f5f3ef;border-radius:6px;font-size:13px}
+#onestop .onestop-hero{height:510px;background:#29273f;position:relative;overflow:hidden}
+#onestop .onestop-hero:after{content:'';position:absolute;width:440px;height:440px;right:-170px;bottom:-150px;border:1px solid rgba(211,193,161,.3);border-radius:50%;box-shadow:0 0 0 65px rgba(211,193,161,.035),0 0 0 130px rgba(211,193,161,.025);pointer-events:none}
+#onestop .onestop-hero>div{top:112px;left:48px;right:48px;bottom:auto;z-index:1}
+#onestop .onestop-hero .brand-eyebrow{color:#cab99b;margin:0 0 22px}
+#onestop .onestop-hero h1{font-size:34px;line-height:1.5;font-weight:600;letter-spacing:-.055em;color:#fff;margin:0}
+#onestop .onestop-hero .expert-hero-desc{font-size:16px;line-height:1.7;color:#c9c6d3;margin:20px 0}
+.expert-hero-link{display:inline-flex;align-items:center;gap:40px;border-bottom:1px solid #8d8273;padding:8px 0;color:#eadcc7;font-size:14px;text-decoration:none}
+#onestop .onestop-services{background:#f6f4f0;padding-top:72px;padding-bottom:64px;scroll-margin-top:70px}
+#onestop .onestop-services .heading{margin-bottom:32px}
+#onestop .onestop-services .heading .section-eyebrow{color:#847256;margin:0 0 15px}
+#onestop .onestop-services .heading h2{font-size:32px;font-weight:600;line-height:1.4;letter-spacing:-.055em;color:#29273f}
+#onestop .onestop-services .heading>p:last-child{line-height:1.8;font-size:15px;margin-top:16px;color:#716d76}
+#onestop .services.profile-accordion{padding:0;border:0;background:transparent;display:grid;gap:14px}
+#onestop .services.profile-accordion details{padding:0;margin:0;overflow:hidden;border:1px solid #e2ded7;border-radius:12px;background:#fff;box-shadow:0 8px 25px rgba(39,32,25,.025)}
+#onestop .services.profile-accordion details[open]{border-color:#b9ac97;box-shadow:0 14px 36px rgba(39,32,25,.055)}
+#onestop .services.profile-accordion summary{padding:24px 48px 24px 24px;min-height:104px;grid-template-columns:46px minmax(0,1fr);gap:7px 18px;background:#fff;border-radius:0}
+#onestop .services.profile-accordion details[open]>summary{background:#eeebe5;border-bottom:1px solid #e2ded7}
+#onestop .services.profile-accordion summary:after{right:22px;color:#827358;font-size:22px}
+#onestop .services.profile-accordion summary>img{width:46px;height:54px}
+#onestop .services.profile-accordion summary>span>i{background:transparent;border:1px solid #d8d1c7;color:#74654f;font-size:10px;border-radius:4px;padding:3px 7px;height:auto;min-height:0}
+#onestop .services.profile-accordion summary>b{font-size:16px;line-height:1.55;color:#373244;font-weight:600}
+#onestop .services.profile-accordion details[open]>.service-expert{display:grid;grid-template-columns:160px minmax(0,1fr);gap:28px;padding:28px;background:#fff;align-items:center;border-radius:0}
+#onestop .services.profile-accordion .expert-who{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;width:160px;min-height:0;padding:0;margin:0;text-align:left;border-radius:0;background:transparent}
+#onestop .services.profile-accordion .expert-number{display:block;color:#8b7756;font-size:9px;letter-spacing:.16em;margin:0 0 10px}
+#onestop .services.profile-accordion .expert-who .person-photo{width:160px;height:176px;border:1px solid #ebe7e0;border-radius:3px;background:linear-gradient(145deg,#f9f7f3,#e8e3db);object-fit:contain;object-position:center bottom;margin:0 0 16px;padding:8px 5px 0;box-shadow:none}
+#onestop .services.profile-accordion .expert-who>b{font-size:20px;font-weight:600;letter-spacing:.03em;line-height:1.4;color:#2c2940;margin:0 0 4px}
+#onestop .services.profile-accordion .expert-who>small{font-size:12px;font-weight:400;color:#7a747c;line-height:1.6;margin:0}
+#onestop .services.profile-accordion .expert-info{width:auto;min-width:0;padding:12px 0;margin:0}
+#onestop .services.profile-accordion details[open] .service-expert .expert-info .expert-lead{font-size:20px;line-height:1.6;font-weight:500;color:#322c45;letter-spacing:-.045em;margin:0 0 20px;word-break:keep-all}
+#onestop .services.profile-accordion .expert-info ul{padding:0;margin:0;list-style:none}
+#onestop .services.profile-accordion .expert-info li{padding-left:12px;position:relative;font-size:13px;line-height:1.8;color:#76717a;margin:0 0 5px}
+#onestop .services.profile-accordion .expert-info li:before{content:'';display:block;position:absolute;left:0;top:10px;width:3px;height:3px;background:#a7977e;border-radius:50%}
+.select-expert{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:24px;padding:12px 14px;border:1px solid #d6cbbb;border-radius:4px;background:#fff;color:#67573e;font:500 13px Pretendard,sans-serif;cursor:pointer;text-align:left}
+.select-expert:hover{background:#f6f2eb}
+.select-expert[aria-pressed=true]{background:#302b48;border-color:#302b48;color:#fff}
+.select-expert:focus-visible,.consultation-section :is(input,textarea,button,a):focus-visible{outline:3px solid #8576b1;outline-offset:3px}
+#onestop .consultation-note{color:#7a737d;font-size:12px;line-height:1.7;margin-top:24px}
+.consultation-section{background:#fff;scroll-margin-top:56px}
+.consultation-heading .section-eyebrow{color:#8c795a;margin:0 0 16px}
+.consultation-heading h2{font-size:32px;font-weight:600;line-height:1.4;letter-spacing:-.05em;color:#2d2842;margin:0}
+.consultation-heading>p:last-child{color:#7b7580;font-size:15px;line-height:1.8;margin:16px 0 0}
+.consultation-steps{display:flex;gap:18px;padding:20px 0;margin:28px 0;border-top:1px solid #e6e1d9;border-bottom:1px solid #e6e1d9;list-style:none;font-size:12px;color:#665c70}
+.consultation-steps li{flex:1}.consultation-steps span{display:block;color:#9b8765;font-size:10px;letter-spacing:.1em;margin-bottom:7px}
+.preview-notice{padding:16px 18px;border-left:2px solid #b7a384;background:#f7f4ef;color:#71695c;font-size:12px;line-height:1.85;margin:0 0 32px}.preview-notice a{color:inherit;font-weight:700}
+#consultation-form fieldset{border:0;min-width:0;padding:0;margin:0 0 32px}
+#consultation-form legend{padding:0;margin-bottom:18px;font-size:17px;font-weight:600;color:#2d2842}
+#consultation-form legend>span{font-size:11px;color:#9b8765;margin-right:8px}
+#consultation-form legend small{font-size:11px;font-weight:400;color:#857f88;margin-left:8px}
+.service-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.service-choice{display:flex;position:relative;align-items:center;gap:10px;padding:15px;border:1px solid #e4e0e8;border-radius:7px;cursor:pointer;min-width:0}
+.service-choice input{accent-color:#4b4169;width:17px;height:17px;margin:0;flex-shrink:0}
+.service-choice span{display:grid;gap:4px}.service-choice b{font-size:14px;font-weight:500;color:#393245}.service-choice small{font-size:11px;color:#8a8490}
+.service-choice i{margin-left:auto;font-size:12px;font-style:normal;color:#85725a;opacity:0}
+.service-choice:has(input:checked){background:#f3eff8;border-color:#837399}.service-choice:has(input:checked) i{opacity:1}
+.selection-status{font-size:12px;line-height:1.7;color:#665876;margin:14px 0 0}
+.consultation-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+.consultation-fields label{font-size:13px;font-weight:500;color:#544a62;display:block}.consultation-fields em{font-size:10px;color:#928799;font-style:normal;margin-left:4px;font-weight:400}.wide-field{grid-column:1/-1}
+.consultation-fields input,.consultation-fields textarea{display:block;box-sizing:border-box;width:100%;margin-top:8px;padding:13px 14px;border:1px solid #ded9e3;background:#fcfbfd;border-radius:5px;color:#342b45;font:400 15px/1.6 Pretendard,sans-serif;resize:vertical}
+.consultation-fields input::placeholder,.consultation-fields textarea::placeholder{color:#aaa2af;font-size:13px}
+.consultation-actions{border-top:1px solid #e5e1e9;padding-top:24px;text-align:center}.consultation-actions p{font-size:12px;color:#8a808f;margin:0 0 14px}
+.consultation-review{width:100%;display:flex;justify-content:space-between;align-items:center;background:#302b48;color:#fff;border:0;border-radius:6px;padding:18px 22px;font:500 15px Pretendard,sans-serif;cursor:pointer}
+.request-review{scroll-margin-top:80px;padding:28px;margin-top:28px;border:1px solid #cfc3af;background:#faf8f4;border-radius:10px}.request-review .section-eyebrow{color:#8c795a}.request-review h3{color:#342b45;font-size:21px;margin:10px 0 24px}.request-review dl{display:grid;grid-template-columns:115px minmax(0,1fr);gap:12px;font-size:13px;line-height:1.7}.request-review dt{color:#867567}.request-review dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:#443a4f}.request-review>p:not(.section-eyebrow){font-size:12px;line-height:1.8;color:#85786e;border-top:1px solid #e2dace;padding-top:18px;margin-top:24px}.request-review button,.request-review>a{font:500 12px Pretendard,sans-serif;display:inline-block;padding:10px 12px;background:#fff;color:#594b69;border:1px solid #d7cedd;border-radius:4px;text-decoration:none;cursor:pointer;margin:6px 8px 0 0}
+@media(max-width:640px){
+ #home .hero-copy .brand-eyebrow{font-size:12px!important;margin:18px 0 12px}
+ #home .plan-negotiable{margin:0 18px 14px;font-size:11px}
+ #onestop .onestop-hero{height:455px}
+ #onestop .onestop-hero>div{top:90px;left:24px;right:24px}
+ #onestop .onestop-hero h1{font-size:27px;line-height:1.55}
+ #onestop .onestop-hero .expert-hero-desc{font-size:14px;margin:18px 0}
+ #onestop .onestop-services{padding:48px 20px}
+ #onestop .onestop-services .heading h2,.consultation-heading h2{font-size:27px}
+ #onestop .onestop-services .heading>p:last-child,.consultation-heading>p:last-child{font-size:13px}
+ #onestop .services.profile-accordion summary{padding:20px 38px 20px 16px;grid-template-columns:36px minmax(0,1fr);gap:6px 12px;min-height:104px}
+ #onestop .services.profile-accordion summary>img{width:36px;height:44px}
+ #onestop .services.profile-accordion summary>b{font-size:14px}
+ #onestop .services.profile-accordion summary:after{right:15px}
+ #onestop .services.profile-accordion details[open]>.service-expert{display:block;padding:22px}
+ #onestop .services.profile-accordion .expert-who{width:100%;display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-rows:20px auto auto;column-gap:18px;align-items:center;text-align:left}
+ #onestop .services.profile-accordion .expert-number{grid-column:2;grid-row:1;margin:0;font-size:8px}
+ #onestop .services.profile-accordion .expert-who .person-photo{grid-column:1;grid-row:1/4;width:84px;height:100px;padding:5px 3px 0;margin:0;border-radius:3px}
+ #onestop .services.profile-accordion .expert-who>b{grid-column:2;grid-row:2;align-self:end;margin:0 0 5px;font-size:20px}
+ #onestop .services.profile-accordion .expert-who>small{grid-column:2;grid-row:3;align-self:start;font-size:12px}
+ #onestop .services.profile-accordion .expert-info{padding:20px 0 0;margin:0}
+ #onestop .services.profile-accordion details[open] .service-expert .expert-info .expert-lead{font-size:18px;margin:0 0 14px}
+ #onestop .services.profile-accordion .expert-info li{font-size:12px;line-height:1.8}
+ .select-expert{margin-top:20px;padding:13px 12px;font-size:12px}
+ .consultation-section{padding:48px 20px 68px}.consultation-steps{gap:10px;font-size:11px}
+ .service-choice{padding:13px 10px;gap:8px}.service-choice b{font-size:12px}.service-choice small{font-size:10px}.service-choice i{display:none}
+ .consultation-fields{grid-template-columns:1fr;gap:18px}.consultation-fields input,.consultation-fields textarea{font-size:16px}
+ .request-review{padding:20px}.request-review dl{grid-template-columns:1fr;gap:4px}.request-review dd{margin-bottom:10px}
+}
+#onestop .services.profile-accordion .expert-who .person-photo{flex:none}
+
+#home .hero-copy .brand-eyebrow{color:#d8c6a6}
+.directory-continue{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding-bottom:7px;border-bottom:1px solid #b6a588;color:#776447;font-size:12px;text-decoration:none}.directory-continue span{display:inline-flex;align-items:center;justify-content:center;min-width:25px;min-height:20px;border-radius:3px;background:#e8e1d6;font-size:10px}
