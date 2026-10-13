@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1">
+<g clip-path="url(#clip0_0_101)">
+<rect width="50" height="50" rx="25" fill="#C7C7C7"/>
+<circle id="Ellipse 2" cx="25.0871" cy="18.3708" r="12.1208" fill="white"/>
+<path id="Ellipse 4" d="M5.39561 51.234C5.52727 46.2883 7.58773 41.5864 11.1445 38.1152C14.7013 34.644 19.4777 32.6735 24.4713 32.6173C29.4649 32.5611 34.2873 34.4235 37.9262 37.8137C41.5652 41.2039 43.7376 45.8581 43.9877 50.7995L24.7004 51.7479L5.39561 51.234Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_101">
+<rect width="50" height="50" rx="25" fill="white"/>
+</clipPath>
+</defs>
+</svg>
