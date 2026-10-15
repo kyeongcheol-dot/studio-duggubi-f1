@@ -19,6 +19,30 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{
 @media(max-width:380px){.preview-banner{padding-left:16px;padding-right:16px;font-size:9px}.care-hero,.care-directory,.form-step{padding-left:16px;padding-right:16px}.care-hero h1{font-size:24px}.directory-heading{display:block}.directory-heading p{margin-top:4px}.card-content{grid-template-columns:64px minmax(0,1fr);gap:12px}.portrait{width:64px;height:82px}.care-card{padding-left:16px;padding-right:16px}.card-copy h3{font-size:19px}.professional span{font-size:10px}.step-indicator{gap:14px}.selection-dock>div{padding-left:16px;padding-right:16px;gap:8px}.selection-dock .primary-button{min-width:148px;padding:12px 14px}.dock-summary>span{max-width:130px}.unsure-choice{padding-left:14px;padding-right:14px;gap:10px}.unsure-icon{display:none}.field-label{align-items:flex-start}.field-label label{max-width:210px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
 
+/* Read the service, then choose it with a full-width touch target. */
+.card-top{padding-right:0;min-height:24px;margin-bottom:16px}
+.care-select{position:relative;inset:auto;width:100%;min-width:0;min-height:54px;margin:0 0 22px;padding:14px 20px;justify-content:center;gap:10px;border:1px solid var(--care-accent);border-radius:var(--radius-control);color:var(--care-accent);font-size:14px;line-height:1.6}
+.care-select .checkbox-mark{width:22px;height:22px;border-color:var(--care-accent);font-size:14px}
+.care-select:has(input:checked) .checkbox-mark{border-color:var(--color-white)}
+.care-detail{margin-top:16px;border-top:0}
+.care-detail summary{min-height:44px;padding:10px 0;color:var(--care-muted)}
+.care-detail ul{padding-bottom:16px}
+#start-request-label{font-size:inherit;font-weight:inherit}
+.selection-dock .primary-button{min-width:240px}
+@media(hover:hover){.care-select:hover{background:var(--care-soft)}.care-select:has(input:checked):hover{background:var(--color-brand-hover)}}
+@media(max-width:640px){
+.card-top{min-height:24px;padding-right:0;margin-bottom:12px}
+.care-select{inset:auto;min-width:0;min-height:54px;margin-bottom:18px;padding:13px 16px;font-size:14px}
+.care-detail{margin-top:10px}
+.selection-dock>div{display:grid;grid-template-columns:1fr;gap:10px;padding:12px 20px}
+.dock-summary{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.dock-summary p{margin:0;white-space:nowrap}
+.dock-summary>span{max-width:65%;font-size:11px}
+.selection-dock .primary-button{width:100%;min-width:0;min-height:52px;font-size:14px;padding:14px 20px}
+.footer{padding-bottom:160px}
+}
+@media(max-width:380px){.selection-dock>div{padding-left:16px;padding-right:16px}.selection-dock .primary-button{min-width:0}.dock-summary>span{max-width:60%}.care-select{font-size:13px}}
+
 </style></head>
 <body>
   <header class="site-header"><nav class="nav" aria-label="주 메뉴"><a href="index.html#home">에프원장례의전</a><a href="index.html#info">장례가이드</a><a href="#experts" class="active" aria-current="page">전문가연결</a></nav></header>
@@ -28,51 +52,51 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{
       <div class="care-directory" id="care-directory"><div class="directory-heading"><h2>분야별 전문가</h2><p>여러 분야를 함께 선택할 수 있습니다.</p></div>
       <div class="care-grid"><article class="care-card" data-service-card="legal-office" aria-labelledby="title-legal-office">
       <div class="card-top"><span class="card-category">법무사</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="legal-office" data-name="상속·채무 정리" aria-label="상속·채무 정리 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/kim-haeram.png" alt="김해람 법무사" loading="lazy"></div><div class="card-copy"><h3 id="title-legal-office">상속·채무 정리</h3><p class="card-description">남겨진 재산과 채무, 어디서부터 정리할지 막막할 때</p><p class="professional"><strong>김해람</strong><span>해람법무사</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>고인의 재산과 채무를 먼저 확인합니다.</li><li>상속포기와 한정승인 중 적합한 방향을 안내합니다.</li><li>법원 제출 서류 준비와 신청 절차를 함께 진행합니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="legal-office" data-name="상속·채무 정리" aria-label="상속·채무 정리 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="tax" aria-labelledby="title-tax">
       <div class="card-top"><span class="card-category">세무사</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="tax" data-name="상속세 상담" aria-label="상속세 상담 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/shin-yungwon.png" alt="신윤권 세무사" loading="lazy"></div><div class="card-copy"><h3 id="title-tax">상속세 상담</h3><p class="card-description">상속세 신고와 필요한 서류를 함께 준비하고 싶을 때</p><p class="professional"><strong>신윤권</strong><span>세무회계 장성</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>상속재산과 공제자료를 검토합니다.</li><li>예상 상속세와 신고 대상 여부를 확인합니다.</li><li>신고·납부에 필요한 서류와 일정을 관리합니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="tax" data-name="상속세 상담" aria-label="상속세 상담 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="memorial" aria-labelledby="title-memorial">
       <div class="card-top"><span class="card-category">3D 피규어 전문가</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="memorial" data-name="추모 기념품" aria-label="추모 기념품 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/shin-kyunghee.png" alt="신경희 3D 피규어 전문가" loading="lazy"></div><div class="card-copy"><h3 id="title-memorial">추모 기념품</h3><p class="card-description">고인의 모습과 기억을 가족만의 추모품으로 남기고 싶을 때</p><p class="professional"><strong>신경희</strong><span>아트네이션스튜디오</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>생전 사진을 바탕으로 3D 피규어를 제작합니다.</li><li>봉안당에 둘 맞춤 추모용품을 준비합니다.</li><li>사진 복원과 보정 등 필요한 작업을 안내합니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="memorial" data-name="추모 기념품" aria-label="추모 기념품 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="flowers" aria-labelledby="title-flowers">
       <div class="card-top"><span class="card-category">플로리스트</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="flowers" data-name="근조화환" aria-label="근조화환 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/kwon-youngman.png" alt="권영만 플로리스트" loading="lazy"></div><div class="card-copy"><h3 id="title-flowers">근조화환</h3><p class="card-description">마음을 전할 화환의 준비와 전달이 필요할 때</p><p class="professional"><strong>권영만</strong><span>원스톱플라워</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>빈소 위치와 전달 가능 시간을 확인합니다.</li><li>예산과 관계에 맞는 근조화환을 안내합니다.</li><li>주문부터 제작·배송 완료까지 관리합니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="flowers" data-name="근조화환" aria-label="근조화환 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="insurance" aria-labelledby="title-insurance">
       <div class="card-top"><span class="card-category">손해사정사</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="insurance" data-name="보험금 상담" aria-label="보험금 상담 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/choi-daewoon.png" alt="최대운 손해사정사" loading="lazy"></div><div class="card-copy"><h3 id="title-insurance">보험금 상담</h3><p class="card-description">가입된 보험과 청구할 수 있는 보험금을 확인하고 싶을 때</p><p class="professional"><strong>최대운</strong><span>법무법인 일현</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>가입 보험과 보장 내용을 확인합니다.</li><li>청구 가능한 보험금과 필요 자료를 정리합니다.</li><li>보험금 청구와 보험사 대응을 돕습니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="insurance" data-name="보험금 상담" aria-label="보험금 상담 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="lawyer" aria-labelledby="title-lawyer">
       <div class="card-top"><span class="card-category">변호사</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="lawyer" data-name="상속 법률 상담" aria-label="상속 법률 상담 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/park-kiyoung.png" alt="박기영 변호사" loading="lazy"></div><div class="card-copy"><h3 id="title-lawyer">상속 법률 상담</h3><p class="card-description">가족 간 상속 문제에 법률적인 도움이 필요할 때</p><p class="professional"><strong>박기영</strong><span>KY법률사무소</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>사실관계와 관련 자료를 검토합니다.</li><li>상속분쟁·손해배상 가능성을 확인합니다.</li><li>협의부터 소송까지 필요한 절차를 안내합니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="lawyer" data-name="상속 법률 상담" aria-label="상속 법률 상담 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="property" aria-labelledby="title-property">
       <div class="card-top"><span class="card-category">공인중개사</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="property" data-name="상속 부동산 매도" aria-label="상속 부동산 매도 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/kim-taegyu.png" alt="김태규 공인중개사" loading="lazy"></div><div class="card-copy"><h3 id="title-property">상속 부동산 매도</h3><p class="card-description">상속받은 부동산의 매도 과정이 궁금할 때</p><p class="professional"><strong>김태규</strong><span>이화공인중개사</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>부동산의 현재 상태와 권리관계를 확인합니다.</li><li>세금 일정을 고려해 매도 시기를 검토합니다.</li><li>매물 등록부터 계약까지 거래 절차를 돕습니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="property" data-name="상속 부동산 매도" aria-label="상속 부동산 매도 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article>
 <article class="care-card" data-service-card="appraisal" aria-labelledby="title-appraisal">
       <div class="card-top"><span class="card-category">감정평가사</span></div>
-      <label class="care-select"><input type="checkbox" name="services" value="appraisal" data-name="재산 가치 평가" aria-label="재산 가치 평가 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">선택하기</span></label>
       <div class="card-content"><div class="portrait"><img src="assets/experts/lee-ahyun-v3-400.png" alt="이아현 감정평가사" loading="lazy"></div><div class="card-copy"><h3 id="title-appraisal">재산 가치 평가</h3><p class="card-description">상속받은 부동산의 가치를 확인하고 싶을 때</p><p class="professional"><strong>이아현</strong><span>정일감정평가법인</span></p></div></div>
       <details class="care-detail"><summary>상담 내용 보기<span class="detail-chevron" aria-hidden="true"></span></summary><ul><li>부동산과 주요 재산의 현황을 확인합니다.</li><li>상속·분할 목적에 맞는 평가 방법을 안내합니다.</li><li>공신력 있는 감정평가 결과를 제공합니다.</li></ul></details>
+      <label class="care-select"><input type="checkbox" name="services" value="appraisal" data-name="재산 가치 평가" aria-label="재산 가치 평가 선택"><span class="checkbox-mark" aria-hidden="true">✓</span><span class="selection-label">이 상담 선택하기</span></label>
     </article></div>
       <label class="unsure-choice"><input type="checkbox" name="services" value="guidance" data-name="도움 분야 안내" aria-label="도움 분야 안내 선택"><span class="unsure-icon" aria-hidden="true">?</span><span><strong>어떤 도움이 필요한지 잘 모르겠어요</strong><small>상황을 먼저 듣고 필요한 분야를 함께 찾아드립니다.</small></span><span class="checkbox-mark" aria-hidden="true">✓</span></label>
       <p class="directory-footnote">선택은 상담 요청을 위한 것입니다. 담당 전문가와 진행 범위·비용은 상담 후 안내드립니다.</p>
@@ -93,7 +117,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{
     <section id="step-review" class="care-step form-step review-step" aria-labelledby="review-heading" hidden><button type="button" class="text-back" data-go="request">← 입력 내용 수정</button><ol class="step-indicator" aria-label="진행 단계"><li class="passed"><span>✓</span>도움 선택</li><li class="passed"><span>✓</span>정보 입력</li><li aria-current="step"><span>3</span>내용 확인</li></ol><h1 id="review-heading" tabindex="-1">이 내용으로 상담을 요청할까요?</h1><p class="step-description">여러 분야의 도움이 하나의 요청으로 모였습니다.</p><div class="review-sheet"><div class="review-sheet-top"><div><small>상담 요청처</small><h2>F1의전</h2></div><span>전문가 상담</span></div><dl id="review-fields"></dl><div class="review-route"><span aria-hidden="true">01</span><p><b>F1의전에서 요청 확인</b><small>내용을 살펴보고 적합한 담당자를 안내합니다.</small></p><span aria-hidden="true">↗</span></div></div><p class="review-preview-note">미리보기입니다. 아래 버튼을 눌러도 문자·이메일은 발송되지 않습니다.</p><button type="button" class="primary-button" id="preview-submit">상담 요청하기 <small>미리보기</small><span aria-hidden="true">→</span></button></section>
     <section id="step-complete" class="care-step complete-step" aria-labelledby="complete-heading" hidden><div class="complete-symbol" aria-hidden="true">✓</div><p class="eyebrow">미리보기 완료</p><h1 id="complete-heading" tabindex="-1">상담 신청 흐름을<br>모두 확인했어요.</h1><p class="complete-lead">실제 상담은 접수되지 않았습니다.</p><p>문자·이메일 발송 없이 화면 체험만 완료됐습니다.<br>입력하신 내용은 저장되지 않습니다.</p><div class="next-care"><span>실제 서비스 연결 후에는</span><p>F1의전이 요청을 확인하고<br>담당자가 남겨주신 연락처로 연락드립니다.</p></div><button type="button" class="primary-button" id="review-again">작성한 내용 다시 보기 <span aria-hidden="true">→</span></button><button type="button" class="reset-button" id="restart-preview">입력 내용 지우고 처음부터</button></section>
   </main>
-  <div class="selection-dock" id="selection-dock"><div><div class="dock-summary"><p>선택한 도움 <strong id="dock-count">0</strong><span>개</span></p><span id="dock-description">필요한 도움을 선택해 주세요</span></div><button type="button" class="primary-button" id="start-request" disabled>상담 요청하기 <span aria-hidden="true">→</span></button></div></div>
+  <div class="selection-dock" id="selection-dock"><div><div class="dock-summary"><p>선택한 도움 <strong id="dock-count">0</strong><span>개</span></p><span id="dock-description">필요한 도움을 선택해 주세요</span></div><button type="button" class="primary-button" id="start-request" disabled><span id="start-request-label">선택 후 다음으로</span> <span aria-hidden="true">→</span></button></div></div>
   <p class="sr-only" id="selection-announcement" role="status" aria-live="polite"></p>
   <footer class="footer">
     <img src="assets/logo.svg" alt="에프원의전">
@@ -137,12 +161,13 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{
       const card = input.closest('[data-service-card]');
       if (!card) return;
       card.classList.toggle('is-selected', input.checked);
-      card.querySelector('.selection-label').textContent = input.checked ? '선택됨' : '선택하기';
+      card.querySelector('.selection-label').textContent = input.checked ? '선택됨 · 다시 누르면 해제' : '이 상담 선택하기';
     });
     document.querySelector('#dock-count').textContent = items.length;
     document.querySelectorAll('.selected-count').forEach(el => el.textContent = items.length);
     document.querySelector('#dock-description').textContent = labels.length ? labels.join(' · ') : '필요한 도움을 선택해 주세요';
     document.querySelector('#start-request').disabled = !items.length;
+    document.querySelector('#start-request-label').textContent = items.length ? `선택한 ${items.length}개 상담 신청하기` : '선택 후 다음으로';
     const chips = document.querySelector('#request-chips');
     chips.replaceChildren();
     items.forEach(input => {
