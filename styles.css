@@ -2151,7 +2151,7 @@ html,body{max-width:100%;overflow-x:clip}
   }
 }
 
-/* Figma 362:10460 — authoritative three-day schedule */
+/* Three-day schedule: cards grow with wrapped text at intermediate widths. */
 @media (min-width:641px){
   .schedule-section{padding:100px 48px;background:var(--cool)}
   .schedule-section .heading{margin-bottom:42px}
@@ -2160,14 +2160,14 @@ html,body{max-width:100%;overflow-x:clip}
   .schedule-section .days{
     position:relative;display:grid;
     grid-template-columns:minmax(0,211fr) 15px minmax(0,212fr) 15px minmax(0,211fr);
-    gap:10px;align-items:start;padding-top:85px;
+    gap:10px;align-items:stretch;padding-top:85px;
   }
   .schedule-section .days::before{
     top:32px;left:15.34%;right:15.34%;
     height:1px;background:var(--color-neutral-300);
   }
   .schedule-section .day{
-    height:249px;min-height:249px;overflow:visible;border:0;
+    height:auto;min-height:249px;min-width:0;overflow:visible;border:0;
     border-radius:24px;background:var(--color-white);
   }
   .schedule-section .day h3{
@@ -2177,9 +2177,10 @@ html,body{max-width:100%;overflow-x:clip}
   .schedule-section .day:nth-of-type(1) h3{left:calc(50% + 2.5px)}
   .schedule-section .day:nth-of-type(3) h3{left:calc(50% - 2.5px)}
   .schedule-section .day h3::after{height:21px;background:var(--color-neutral-300)}
-  .schedule-section .day-body{height:100%;padding:24px;display:block}
+  .schedule-section .day-body{height:auto;padding:24px;display:block}
   .schedule-section .day h4{
-    min-height:68px;margin:0;display:block;color:var(--main);font-size:20px;
+    min-height:68px;margin:0;padding-bottom:12px;display:block;color:var(--main);font-size:20px;
+    word-break:keep-all;overflow-wrap:anywhere;
     line-height:1.2;letter-spacing:-.4px;text-align:left;font-weight:700;
   }
   .schedule-section .day:first-child h4{min-height:68px}
@@ -2194,7 +2195,7 @@ html,body{max-width:100%;overflow-x:clip}
   }
   .schedule-section .day li:last-child:nth-child(odd){grid-column:auto}
   .schedule-section .day-arrow{
-    align-self:start;justify-self:center;width:15px;height:15px;margin-top:124px;
+    align-self:center;justify-self:center;width:15px;height:15px;margin-top:0;
     opacity:.55;
   }
 }
