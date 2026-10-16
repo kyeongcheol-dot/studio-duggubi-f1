@@ -107,6 +107,8 @@ function selectPlan(key) {
   document.querySelector('#plan-price').textContent = plan.price;
   document.querySelector('.plan-summary small').textContent = '안내 금액';
   document.querySelector('#plan-negotiable').hidden = !plan.negotiable;
+  const comparison = document.querySelector('#plan-comparison');
+  if (comparison) comparison.hidden = key !== 'burial';
   const image = document.querySelector('#plan-image');
   image.src = plan.image;
   image.alt = plan.title;
