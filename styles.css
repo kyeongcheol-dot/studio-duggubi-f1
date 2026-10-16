@@ -177,7 +177,7 @@
   .site-header{padding-left:32px;padding-right:32px}
   .section{padding-left:32px;padding-right:32px}
   .compare-section .compare{width:100%}
-  .compare-section .compare-card{width:calc((100% - 20px)/2)}
+  .compare-section .compare-card{width:100%;min-width:0}
   .expert-section{padding-left:32px;padding-right:32px}
   .expert-section .experts{width:100%;margin-left:0}
   .expert-section .expert{flex-basis:340px;width:340px;border-radius:var(--radius-panel)}
@@ -1058,10 +1058,15 @@ html,body{max-width:100%;overflow-x:clip}
 #home .compare-section .compare-card li span{line-height:1.5}
 #home .compare-section .compare-card.featured{background:var(--color-white)}
 @media(min-width:641px){
-  #home .compare-section .compare-card{height:420px}
-  #home .compare-section .compare-card ul{height:329px;margin:0 24px}
+  #home .compare-section .compare{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #home .compare-section .compare-card{width:100%;height:auto;min-height:420px;min-width:0}
+  #home .compare-section .compare-head{height:auto;min-height:91px}
+  #home .compare-section .compare-head h3,
+  #home .compare-section .compare-head p{white-space:normal;overflow-wrap:anywhere}
+  #home .compare-section .compare-card ul{height:auto;margin:0 24px}
   #home .compare-section .compare-card li{
-    height:33.333%;
+    height:auto;
+    min-height:109px;
     padding:15px 0 12px;
     justify-content:flex-start;
     gap:8px;
