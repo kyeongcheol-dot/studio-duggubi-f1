@@ -77,6 +77,31 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
 }
 @media(max-width:380px){.consultant-choice{padding:18px 16px 12px;column-gap:14px}.consultant-title{font-size:20px}.consultant-details{width:calc(100% - 32px);margin-left:16px;margin-right:16px}}
 
+/* Keep the expert identity and its detail action on the same row. */
+.consultant-card{display:grid;grid-template-columns:128px minmax(0,1fr) auto;column-gap:28px;row-gap:10px;padding:24px 28px}
+.consultant-choice{display:contents}
+.consultant-title{grid-column:2/-1;grid-row:1}
+.consultant-description{grid-column:2/-1;grid-row:2}
+.consultant-identity{grid-column:2;grid-row:3;align-self:center;min-width:0;overflow-wrap:anywhere}
+.consultant-details{grid-column:3;grid-row:3;align-self:center;justify-self:end;width:auto;max-width:170px;margin:12px 0 0;padding:8px 0;border:0;gap:10px;word-break:keep-all}
+.consultant-details .details-arrow{font-size:18px;font-weight:400}
+.consultant-details .details-caption{font:inherit}
+@media(max-width:640px){
+ .consultant-card{grid-template-columns:80px minmax(0,1fr) 88px;gap:16px 12px;padding:20px}
+ .consultant-title{grid-column:1/-1;grid-row:1}
+ .consultant-portrait{grid-column:1;grid-row:2}
+ .consultant-identity{grid-column:2;grid-row:2;padding:0;gap:4px}
+ .consultant-description{grid-column:1/-1;grid-row:3}
+ .consultant-details{grid-column:3;grid-row:2;width:88px;margin:0;font-size:11px;line-height:1.65;gap:6px}
+ .consultant-details .details-caption{max-width:66px}
+}
+@media(max-width:380px){
+ .consultant-card{grid-template-columns:60px minmax(0,1fr) 82px;padding:18px 16px;column-gap:10px}
+ .consultant-portrait{width:60px;height:82px}
+ .consultant-identity strong{font-size:16px}.consultant-role,.consultant-office{font-size:11px}
+ .consultant-details{width:82px}
+}
+
 </style></head>
 <body>
   <header class="site-header"><nav class="nav" aria-label="주 메뉴"><a href="index.html#home">에프원장례의전</a><a href="index.html#info">장례가이드</a><a href="#experts" class="active" aria-current="page">전문가연결</a></nav></header>
@@ -92,7 +117,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>김해람</strong><span class="consultant-role">법무사</span></span><span class="consultant-office">해람법무사</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="legal-office" aria-label="김해람 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="legal-office" aria-label="김해람 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="tax" aria-label="상속세 신고">
       <label class="consultant-choice"><input type="checkbox" name="services" value="tax" data-name="상속세 신고" aria-label="상속세 신고 선택">
@@ -102,7 +127,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>신윤권</strong><span class="consultant-role">세무사</span></span><span class="consultant-office">세무회계 장성</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="tax" aria-label="신윤권 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="tax" aria-label="신윤권 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="lawyer" aria-label="상속 법률 상담">
       <label class="consultant-choice"><input type="checkbox" name="services" value="lawyer" data-name="상속 법률 상담" aria-label="상속 법률 상담 선택">
@@ -112,7 +137,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>박기영</strong><span class="consultant-role">변호사</span></span><span class="consultant-office">KY법률사무소</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="lawyer" aria-label="박기영 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="lawyer" aria-label="박기영 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="insurance" aria-label="보험금 청구">
       <label class="consultant-choice"><input type="checkbox" name="services" value="insurance" data-name="보험금 청구" aria-label="보험금 청구 선택">
@@ -122,7 +147,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>최대운</strong><span class="consultant-role">손해사정사</span></span><span class="consultant-office">법무법인 일현</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="insurance" aria-label="최대운 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="insurance" aria-label="최대운 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="property" aria-label="상속 부동산 매도">
       <label class="consultant-choice"><input type="checkbox" name="services" value="property" data-name="상속 부동산 매도" aria-label="상속 부동산 매도 선택">
@@ -132,7 +157,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>김태규</strong><span class="consultant-role">공인중개사</span></span><span class="consultant-office">이화공인중개사</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="property" aria-label="김태규 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="property" aria-label="김태규 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="appraisal" aria-label="상속 재산 평가">
       <label class="consultant-choice"><input type="checkbox" name="services" value="appraisal" data-name="상속 재산 평가" aria-label="상속 재산 평가 선택">
@@ -142,7 +167,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>이아현</strong><span class="consultant-role">감정평가사</span></span><span class="consultant-office">정일감정평가법인</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="appraisal" aria-label="이아현 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="appraisal" aria-label="이아현 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="memorial" aria-label="추모 기념품">
       <label class="consultant-choice"><input type="checkbox" name="services" value="memorial" data-name="추모 기념품" aria-label="추모 기념품 선택">
@@ -152,7 +177,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>신경희</strong><span class="consultant-role">3D 피규어 전문가</span></span><span class="consultant-office">아트네이션스튜디오</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="memorial" aria-label="신경희 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="memorial" aria-label="신경희 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article>
 <article class="consultant-card" data-service-card="flowers" aria-label="근조화환">
       <label class="consultant-choice"><input type="checkbox" name="services" value="flowers" data-name="근조화환" aria-label="근조화환 선택">
@@ -162,7 +187,7 @@ body.expert-modal-open{overflow:hidden}#expert-dialog{width:min(640px,calc(100% 
         <span class="consultant-identity"><span><strong>권영만</strong><span class="consultant-role">플로리스트</span></span><span class="consultant-office">원스톱플라워</span></span>
         <span class="selection-label sr-only">선택</span>
       </label>
-      <button type="button" class="consultant-details" data-expert-details="flowers" aria-label="권영만 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog">상담 내용·전문가 소개 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="consultant-details" data-expert-details="flowers" aria-label="권영만 전문가 소개·상담 안내" aria-haspopup="dialog" aria-controls="expert-dialog"><span class="details-caption">상담 내용·전문가 소개</span><span class="details-arrow" aria-hidden="true">↗</span></button>
     </article></div>
       <label class="unsure-choice"><input type="checkbox" name="services" value="guidance" data-name="도움 분야 안내" aria-label="도움 분야 안내 선택"><span class="unsure-icon" aria-hidden="true">?</span><span><strong>어떤 도움이 필요한지 모르겠어요</strong><small>상황을 남겨주시면 필요한 상담부터 함께 찾아드립니다.</small></span><span class="checkbox-mark" aria-hidden="true">✓</span></label>
       <p class="directory-footnote">상담 분야를 선택하는 단계입니다. 진행 범위와 비용은 상담 후 안내드립니다.</p>
