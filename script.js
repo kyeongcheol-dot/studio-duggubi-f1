@@ -25,6 +25,11 @@ function updatePetalOpacity() {
 
 function showPage() {
   const requested = location.hash.slice(1);
+  // Keep previously shared expert links on the approved consultation screen.
+  if (['onestop', 'onestop-cases', 'consultation'].includes(requested)) {
+    location.replace('experts-preview.html?v=13#care-directory');
+    return;
+  }
   const caseTarget = ['onestop-cases', 'consultation'].includes(requested);
   const id = caseTarget ? 'onestop' : pages.some(page => page.id === requested) ? requested : 'home';
   pages.forEach(page => page.hidden = page.id !== id);
