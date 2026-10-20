@@ -1,0 +1,69 @@
+/* Home only: independent background and alpha foreground, existing guide/expert styles retained. */
+body:has(#home:not([hidden])){background:#fff}
+body:has(#home:not([hidden])) main{width:100%;max-width:1440px}
+#home>.section,#home>.closing{max-width:800px;margin-inline:auto}
+body:has(#home:not([hidden])) .site-header{width:100%;max-width:1440px;background:rgba(250,249,246,.93);color:#2c2a52;border-bottom:1px solid rgba(44,42,82,.12);box-shadow:none}
+body:has(#home:not([hidden])) .site-header .nav{max-width:800px;left:0;right:0;margin:auto}
+body:has(#home:not([hidden])) .site-header .nav a{color:#2c2a52}
+body:has(#home:not([hidden])) .site-header .nav a.active{border-color:#2c2a52}
+#home .lifecare-hero{height:790px;min-height:0;aspect-ratio:auto;background:#f3eee5;color:#2c2a52;isolation:isolate;overflow:hidden}
+#home .lifecare-hero::after{content:none}
+.lifecare-background{position:absolute;inset:-150px 0 -150px;z-index:0;transform:translate3d(0,var(--space-y,0px),0);will-change:transform;pointer-events:none}
+.lifecare-background img{display:block;width:100%;height:100%;object-fit:cover;object-position:52% 50%}
+.lifecare-light{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(250,249,246,.96) 0%,rgba(250,249,246,.88) 30%,rgba(250,249,246,.52) 49%,rgba(250,249,246,0) 72%);pointer-events:none}
+#home .lifecare-hero .hero-copy{position:relative;z-index:4;padding:158px 0 0 6%;width:57%;text-align:left}
+#home .lifecare-hero .hero-brand-logo{width:172px;height:auto;filter:brightness(0) saturate(100%) invert(15%) sepia(17%) saturate(1730%) hue-rotate(205deg)}
+#home .lifecare-hero .brand-eyebrow{color:#76664c;font-size:13px!important;letter-spacing:.13em!important;line-height:1.5;margin:42px 0 18px}
+#home .lifecare-hero .hero-copy h1{font-size:clamp(37px,3.8vw,53px);line-height:1.32;letter-spacing:-.055em;font-weight:700;margin:0;color:#2c2a52;word-break:keep-all}
+#home .lifecare-hero .hero-copy h1>span{display:block}
+#home .lifecare-description{font-size:16px;line-height:1.9;color:#62616b;letter-spacing:-.025em;margin:27px 0 0;word-break:keep-all}
+#home .lifecare-description strong{font-weight:600;color:#39374f}
+.lifecare-actions{display:flex;align-items:center;gap:24px;margin-top:36px;flex-wrap:wrap}
+.lifecare-primary{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 22px;background:#2c2a52;border:1px solid #2c2a52;border-radius:4px;color:#fff;font-size:12px;line-height:1.35;min-height:70px;text-decoration:none}
+.lifecare-primary span{font-size:19px;letter-spacing:.015em;font-weight:650}
+.lifecare-secondary{display:inline-flex;gap:18px;align-items:center;border-bottom:1px solid #a6a0a8;padding:9px 0;color:#2c2a52;font-size:13px;min-height:44px;text-decoration:none}
+.lifecare-actions a:focus-visible{outline:3px solid #7770b0;outline-offset:5px}
+.lifecare-primary:hover{background:#444064}
+.lifecare-people{position:absolute;z-index:2;right:0;bottom:-54px;width:51%;max-width:735px;pointer-events:none;transform:translate3d(0,var(--people-y,0px),0);will-change:transform}
+.lifecare-people img{display:block;width:100%;height:auto}
+.lifecare-frontlight{position:absolute;z-index:3;inset:auto 0 0;height:92px;background:linear-gradient(0deg,#f8f6f2,rgba(248,246,242,0));pointer-events:none}
+.lifecare-scroll{position:absolute;z-index:4;bottom:32px;left:6%;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.03em;color:#787680;margin:0}
+.lifecare-scroll span{height:26px;width:1px;background:#8c8493}
+#home .lifecare-vision{max-width:800px;margin:auto;padding:90px 48px 80px;text-align:center;background:#fff;color:#2c2a52}
+.lifecare-kicker{font-size:12px;letter-spacing:.12em;color:#8c795e;margin:0 0 22px}
+.lifecare-vision h2{font-size:36px;line-height:1.4;font-weight:650;letter-spacing:-.045em;margin:0 0 22px}
+.lifecare-vision>p:last-of-type{font-size:16px;line-height:1.9;color:#777480;word-break:keep-all}
+.lifecare-areas{display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin-top:30px;color:#555266;font-size:13px}
+.lifecare-areas span{padding:0 19px;border-right:1px solid #dad6df}.lifecare-areas span:last-child{border:0}
+@media(min-width:900px) and (max-width:1130px){#home .lifecare-hero{height:760px}.lifecare-people{width:53%;bottom:-15px}#home .lifecare-hero .hero-copy{padding-left:5%;width:61%}#home .lifecare-hero .hero-copy h1{font-size:38px}#home .lifecare-description{font-size:14px}}
+@media(max-width:899px){
+ #home .lifecare-hero{height:1000px;aspect-ratio:auto}
+ #home .lifecare-hero .hero-copy{width:100%;padding:102px 7% 0}
+ #home .lifecare-hero .hero-brand-logo{width:158px}
+ #home .lifecare-hero .brand-eyebrow{margin:30px 0 15px}
+ #home .lifecare-hero .hero-copy h1{font-size:40px}
+ #home .lifecare-description{font-size:15px;margin-top:20px}
+ .lifecare-actions{margin-top:25px;gap:24px}
+ .lifecare-primary{flex-direction:row;align-items:center;gap:16px;min-height:54px;padding:13px 18px;font-size:12px}.lifecare-primary span{font-size:17px}
+ .lifecare-people{width:530px;max-width:82%;bottom:-65px;right:3%}
+ .lifecare-background{inset:-120px -15% -120px;opacity:.86}
+ .lifecare-light{background:linear-gradient(180deg,#faf9f6 0%,rgba(250,249,246,.94) 36%,rgba(250,249,246,.4) 58%,rgba(250,249,246,0) 90%)}
+ .lifecare-scroll{bottom:34px;left:7%;writing-mode:vertical-rl;gap:12px}
+}
+@media(max-width:540px){
+ #home .lifecare-hero{height:850px}
+ #home .lifecare-hero .hero-copy{padding:94px 24px 0}
+ #home .lifecare-hero .hero-brand-logo{width:136px}
+ #home .lifecare-hero .brand-eyebrow{font-size:11px!important;margin:27px 0 13px}
+ #home .lifecare-hero .hero-copy h1{font-size:clamp(26px,7.2vw,36px);line-height:1.38}
+ #home .lifecare-description{font-size:13px;line-height:1.85;margin-top:18px}
+ .lifecare-actions{gap:16px;margin-top:22px;align-items:stretch}
+ .lifecare-primary{flex-direction:column;align-items:flex-start;gap:4px;min-height:65px;padding:12px 16px;font-size:11px}.lifecare-primary span{font-size:17px}
+ .lifecare-secondary{font-size:12px;gap:10px;align-self:center}
+ .lifecare-people{width:390px;max-width:98%;right:-1%;bottom:-24px}
+ .lifecare-scroll{left:16px;bottom:28px;font-size:9px}
+ .lifecare-frontlight{height:60px}
+ #home .lifecare-vision{padding:62px 24px 54px}
+ .lifecare-vision h2{font-size:28px}.lifecare-vision>p:last-of-type{font-size:13px}.lifecare-areas{font-size:11px}.lifecare-areas span{padding:0 10px}
+}
+@media(prefers-reduced-motion:reduce){.lifecare-background,.lifecare-people{transform:none!important;will-change:auto}}
